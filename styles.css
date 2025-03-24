@@ -1,13 +1,14 @@
 /* Global Styles */
 :root {
-  --primary-color: #5271ff; /* Changed to blue instead of pink */
-  --secondary-color: #f0f4ff; /* Lighter blue background */
+  --primary-color: #5271ff; /* Blue */
+  --secondary-color: #f0f4ff; /* Light blue background */
   --dark-color: #222;
   --light-color: #f4f4f4;
   --success-color: #5cb85c;
   --error-color: #d9534f;
   --text-color: #333;
-  --accent-color: #8a4fff; /* Secondary accent for highlights */
+  --accent-color: #37b37f; /* Green accent color */
+  --accent-secondary: #26a69a; /* Secondary green */
 }
 
 * {
@@ -58,6 +59,7 @@ header .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 
 .logo a {
@@ -80,11 +82,11 @@ header .container {
 }
 
 .nav-menu a:hover {
-  color: var(--primary-color);
+  color: var(--accent-color);
 }
 
 .cta-button {
-  background-color: var(--primary-color);
+  background-color: var(--accent-color);
   color: white !important;
   padding: 10px 20px;
   border-radius: 50px;
@@ -92,7 +94,7 @@ header .container {
 }
 
 .cta-button:hover {
-  background-color: #c322a1;
+  background-color: var(--primary-color);
   transform: translateY(-2px);
 }
 
@@ -143,9 +145,12 @@ header .container {
 }
 
 .hero-text h2 {
-  font-size: 1rem;
+  font-size: 1.1rem;
   margin-bottom: 15px;
-  color: #666;
+  color: var(--accent-color);
+  font-weight: 500;
+  letter-spacing: 1px;
+  font-style: italic;
 }
 
 .hero-text p {
@@ -157,12 +162,25 @@ header .container {
   display: flex;
   align-items: center;
   margin-bottom: 30px;
+  position: relative;
+}
+
+.section-header::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='10' viewBox='0 0 100 10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 5 Q 25 0, 50 5 T 100 5' fill='none' stroke='%2337b37f' stroke-width='2'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-size: 100px 10px;
 }
 
 .section-icon {
   width: 40px;
   height: 40px;
-  background-color: var(--primary-color);
+  background-color: var(--accent-color);
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -177,6 +195,7 @@ header .container {
 
 .section-header h2 {
   font-size: 2rem;
+  color: var(--primary-color);
 }
 
 /* Career Highlights */
@@ -188,6 +207,19 @@ header .container {
   margin-bottom: 30px;
   padding-bottom: 20px;
   border-bottom: 1px solid #eee;
+  position: relative;
+}
+
+.highlight-item::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='6' viewBox='0 0 60 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 3 Q 15 0, 30 3 T 60 3' fill='none' stroke='%235271ff' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-size: 60px 6px;
 }
 
 .highlight-item:last-child {
@@ -195,7 +227,7 @@ header .container {
 }
 
 .highlight-item h3 {
-  color: var(--primary-color);
+  color: var(--accent-color);
   margin-bottom: 10px;
 }
 
@@ -213,6 +245,19 @@ header .container {
   align-items: center;
   gap: 40px;
   margin-top: 30px;
+  position: relative;
+}
+
+.project-content::before {
+  content: "";
+  position: absolute;
+  top: -15px;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='8' viewBox='0 0 80 8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 4 Q 20 0, 40 4 T 80 4' fill='none' stroke='%2337b37f' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-size: 80px 8px;
 }
 
 .project-text {
@@ -238,6 +283,7 @@ header .container {
   font-size: 1.2rem;
   margin: 15px 0 10px;
   font-weight: 600;
+  color: var(--accent-color);
 }
 
 .project-showcase p {
@@ -272,7 +318,7 @@ header .container {
 .link-button {
   display: inline-flex;
   align-items: center;
-  color: var(--primary-color);
+  color: var(--accent-color);
   font-weight: 500;
   margin-top: 10px;
 }
@@ -284,6 +330,10 @@ header .container {
 
 .link-button:hover i {
   transform: translateX(5px);
+}
+
+.link-button:hover {
+  color: var(--primary-color);
 }
 
 /* More Portfolio */
@@ -298,7 +348,7 @@ header .container {
 }
 
 .portfolio-item h3 {
-  color: var(--dark-color);
+  color: var(--accent-color);
   margin-bottom: 10px;
 }
 
@@ -315,15 +365,11 @@ header .container {
   margin-bottom: 5px;
 }
 
-/* Tool Proficiency */
-.tool-proficiency {
-  background-color: var(--secondary-color);
-}
-
 /* CTA Section */
 .cta-section {
   text-align: center;
   padding: 80px 0;
+  background-color: #f9fdfc; /* Light greenish background */
 }
 
 .cta-section h2 {
@@ -332,12 +378,13 @@ header .container {
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
+  color: var(--primary-color);
 }
 
 .cta-button-large {
   display: inline-flex;
   align-items: center;
-  background-color: var(--primary-color);
+  background-color: var(--accent-color);
   color: white;
   padding: 15px 30px;
   border-radius: 50px;
@@ -352,7 +399,7 @@ header .container {
 }
 
 .cta-button-large:hover {
-  background-color: #c322a1;
+  background-color: var(--primary-color);
   transform: translateY(-2px);
 }
 
@@ -398,8 +445,8 @@ header .container {
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 2px rgba(82, 113, 255, 0.2);
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 2px rgba(55, 179, 127, 0.2);
 }
 
 /* Footer */
@@ -417,6 +464,7 @@ footer {
 .footer-logo h3 {
   font-size: 1.5rem;
   margin-bottom: 10px;
+  color: var(--accent-color);
 }
 
 .footer-logo p {
@@ -427,6 +475,7 @@ footer {
 .footer-social h4,
 .footer-contact h4 {
   margin-bottom: 20px;
+  color: var(--primary-color);
 }
 
 .footer-links ul li,
@@ -436,11 +485,11 @@ footer {
 
 .footer-contact ul li i {
   margin-right: 10px;
-  color: var(--primary-color);
+  color: var(--accent-color);
 }
 
 .footer-links ul li a:hover {
-  color: var(--primary-color);
+  color: var(--accent-color);
 }
 
 .social-icons {
@@ -454,14 +503,14 @@ footer {
   align-items: center;
   width: 40px;
   height: 40px;
-  background-color: var(--primary-color);
+  background-color: var(--accent-color);
   color: white;
   border-radius: 50%;
   transition: all 0.3s ease;
 }
 
 .social-icons a:hover {
-  background-color: #c322a1;
+  background-color: var(--primary-color);
   transform: translateY(-2px);
 }
 
@@ -491,6 +540,7 @@ footer {
   header .container {
     flex-direction: column;
     align-items: flex-start;
+    position: relative;
   }
 
   .container {
